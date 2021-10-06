@@ -33,11 +33,21 @@ app.get("/", (req, res) => {
   res.status(200).render("home.pug");
 });
 
-app.get("/contact", (req, res) => {
-  res.status(200).render("contact.pug");
+app.get("/Apply", (req, res) => {
+  res.status(200).render("Apply.pug");
+});
+app.get("/about", (req, res) => {
+  res.status(200).render("About.pug");
+});
+app.get("/Contact", (req, res) => {
+  res.status(200).render("Contact.pug");
+});
+app.get("/Class", (req, res) => {
+  res.status(200).render("Class.pug");
 });
 
-app.post("/contact", (req, res) => {
+
+app.post("/Apply", (req, res) => {
   var myData = new Contact(req.body);
   myData.save().then(() => {
       res.send("This item is saved to database");
@@ -45,7 +55,6 @@ app.post("/contact", (req, res) => {
     .catch(() => {
       res.status(400).send("This item was not saved to database");
     });
-  // res.status(200).render("contact.pug");
 });
 
 app.listen(port, () => {
